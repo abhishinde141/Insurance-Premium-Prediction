@@ -39,8 +39,4 @@ To give people an estimate of how much they need based on their individual healt
    - Deploy the best-performing model (e.g., Gradient Boosting Regressor) using Flask for the backend, with a user-friendly HTML5 interface for the frontend.
    - Implement logging at each stage of the development and deployment process, storing logs in designated files (e.g., `jupyter_notebook_logs.log` for development and `app_deployment_logs.log` for deployment).
 
-<<<<<<< HEAD
 By following this approach, users can input their individual health details into the web application to receive a quick estimate of their insurance premium.
-=======
-By following this approach, users can input their individual health details into the web application to receive a quick estimate of their insurance premium.
->>>>>>> 8da9ee9 (Update README.md)
