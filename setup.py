@@ -6,24 +6,30 @@ folders = [
     "models",
     "src",
     "tests",
-    "logs"
+    "reports",
+    "reports/figures",
+    "logs",
+    ".github/workflows"
 ]
 
 # Define files to create in each folder
 files = [
-    r"README.md",
-    r"requirements.txt",
-    r"Dockerfile",
-    r"data/insurance.csv",
-    r"models/preprocessor.joblib",
-    r"models/best_model.joblib",
-    r"src/data_loading.py",
-    r"src/eda.py",
-    r"src/preprocessing.py",
-    r"src/train.py",
-    r"src/app.py",
-    r"tests/test_model.py",
-    r"logs/app.log"
+    "README.md",
+    "requirements.txt",
+    "Dockerfile",
+    "data/insurance.csv",
+    "models/preprocessor.joblib",
+    "models/best_model.joblib",
+    "src/data_loading.py",
+    "src/eda.py",
+    "src/preprocessing.py",
+    "src/train.py",
+    "src/app.py",
+    "src/streamlit.py",
+    "tests/test_model.py",
+    "logs/app.log",
+    "logs/logging_config.log",
+    ".github/workflows/deploy.yml"
 ]
 
 # Create folders

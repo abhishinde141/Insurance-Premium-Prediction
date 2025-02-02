@@ -1,0 +1,12 @@
+# .github/workflows/main.yml
+name: CI/CD
+on: [push]
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+      - name: Run tests
+        run: pytest tests/

@@ -7,6 +7,10 @@ streamlit>=1.0.0
 pandas>=1.3.0
 numpy>=1.21.0
 
+# Data Visualization
+matplotlib>=3.4.0
+seaborn>=0.11.1
+
 # Machine Learning
 scikit-learn>=1.0.0
 joblib>=1.0.0
@@ -16,6 +20,9 @@ requests>=2.26.0
 
 # Data validation
 pydantic>=2.0.0
+
+# Unit tests
+pytest>=6.2.0
 
 # Optional for JSON serialization (if using datetime fields)
 python-multipart>=0.0.5
