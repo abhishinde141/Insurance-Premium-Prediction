@@ -1,4 +1,14 @@
 import os
+from setuptools import setup, find_packages
+
+setup(
+    name="insurance_prediction",
+    version="0.1",
+    packages=find_packages(),
+    install_requires=[
+        # your dependencies here
+    ],
+)
 
 # Define project structure
 folders = [
@@ -20,12 +30,14 @@ files = [
     "data/insurance.csv",
     "models/preprocessor.joblib",
     "models/best_model.joblib",
+    "src/__init__.py",
     "src/data_loading.py",
     "src/eda.py",
     "src/preprocessing.py",
     "src/train.py",
     "src/app.py",
     "src/streamlit.py",
+    "tests/__init__.py",
     "tests/test_model.py",
     "logs/app.log",
     "logs/logging_config.log",
