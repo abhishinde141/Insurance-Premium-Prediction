@@ -103,7 +103,7 @@ To give people an estimate of how much they need based on their individual healt
    
    ```
 
-By following this approach, users can input their individual health details into the web application to receive a quick estimate of their insurance premium.
+By this approach, users can input their individual health details into the web application to receive a quick estimate of their insurance premium.
 
 
 
