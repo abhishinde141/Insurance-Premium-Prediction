@@ -39,4 +39,71 @@ To give people an estimate of how much they need based on their individual healt
    - Deploy the best-performing model (e.g., Gradient Boosting Regressor) using Flask for the backend, with a user-friendly HTML5 interface for the frontend.
    - Implement logging at each stage of the development and deployment process, storing logs in designated files (e.g., `jupyter_notebook_logs.log` for development and `app_deployment_logs.log` for deployment).
 
+7. **Installation**:
+   1. Clone the repository:
+   ```bash
+   git clone https://github.com/yourusername/Insurance-Premium-Prediction.git
+   cd Insurance-Premium-Prediction
+   ```
+   2. Create and activate virtual environment:
+   ```
+   # Windows
+   python -m venv venv
+   venv\Scripts\activate
+
+   # macOS/Linux
+   python3 -m venv venv
+   source venv/bin/activate
+   ```
+   3. Install dependencies:
+   ```
+   pip install -r requirements.txt
+   ```
+8. **Running the Application**:
+   1. Start FastAPI Backend:
+   
+   *In a terminal*:
+   ```
+   # From project root directory
+   uvicorn src.app:app --reload --host 0.0.0.0 --port 8000
+   ```
+   - API Docs will be available at: http://localhost:8000/docs
+   - Backend service: http://localhost:8000
+
+   2. Start Streamlit Frontend:
+   
+   *In a separate terminal*:
+   ```
+   # From project root directory
+   streamlit run streamlit/app.py
+   ```
+   - Streamlit app will open in browser at: http://localhost:8501
+
+9. ***Using the Application***:
+   1. Streamlit Interface:
+   - Fill in the form with your details
+   - Click "Predict Premium"
+   - View prediction results
+
+   2. Direct API Access:
+   ```
+   curl -X POST "http://localhost:8000/predict" \
+   -H "Content-Type: application/json" \
+   -d '{"age": 30, "sex": "male", "bmi": 25.0, "children": 0, "smoker": "no", "region": "southeast"}'
+   ```
+1. ***Development***:
+   1. Training the Model:
+   ```
+   python src/train.py
+   ```
+
+   2. Running Tests:
+   ```
+   python -m pytest tests/
+   
+   ```
+
 By following this approach, users can input their individual health details into the web application to receive a quick estimate of their insurance premium.
+
+
+
