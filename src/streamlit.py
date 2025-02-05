@@ -1,8 +1,18 @@
 import streamlit as st
-import requests
+import pandas as pd
+import joblib
 
-# Configure API endpoint
-API_URL = "http://localhost:8000/predict"
+# Load model and preprocessor
+MODEL_PATH = "models/best_model.joblib"
+PREPROCESSOR_PATH = "models/preprocessor.joblib"
+
+try:
+    preprocessor = joblib.load(PREPROCESSOR_PATH)
+    model = joblib.load(MODEL_PATH)
+    # st.success("✅ Model and Preprocessor loaded successfully!")
+except Exception as e:
+    st.error(f"❌ Error loading model: {e}")
+    st.stop()
 
 # Create form
 st.title("🚑 Health Insurance Premium Predictor")
@@ -26,27 +36,23 @@ with st.form("prediction_form"):
     submitted = st.form_submit_button("Predict Premium 💰")
     
     if submitted:
-        # Prepare input data
-        input_data = {
-            "age": age,
-            "sex": sex,
-            "bmi": bmi,
-            "children": children,
-            "smoker": smoker,
-            "region": region
-        }
-        
-        # Make API call
+        # Prepare input data as a DataFrame
+        input_data = pd.DataFrame({
+            "age": [age],
+            "sex": [sex],
+            "bmi": [bmi],
+            "children": [children],
+            "smoker": [smoker],
+            "region": [region]
+        })
+
+        # Make prediction
         try:
-            response = requests.post(API_URL, json=input_data)
-            if response.status_code == 200:
-                result = response.json()
-                st.success(f"Predicted Insurance Premium: **${result['predicted_charges']:,.2f}**")
-            else:
-                st.error(f"API Error: {response.text}")
-        
-        except requests.exceptions.RequestException as e:
-            st.error(f"Connection Error: {str(e)}")
+            processed_input = preprocessor.transform(input_data)
+            prediction = model.predict(processed_input)
+            st.success(f"Predicted Insurance Premium: **${prediction[0]:,.2f}**")
+        except Exception as e:
+            st.error(f"❌ Prediction Error: {e}")
 
 # Footer section
 st.markdown("---")

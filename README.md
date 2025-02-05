@@ -76,7 +76,7 @@ To give people an estimate of how much they need based on their individual healt
    *In a separate terminal*:
    ```
    # From project root directory
-   streamlit run src/streamlit.py
+   streamlit run src/streamlit_app.py
    ```
    - Streamlit app will open in browser at: http://localhost:8501
 
